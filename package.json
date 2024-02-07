@@ -1,0 +1,16 @@
+{
+  "name": "git-tag-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@inquirer/prompts": "^4.0.0",
+    "simple-git": "^3.22.0"
+  }
+}
