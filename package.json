@@ -12,5 +12,8 @@
   "dependencies": {
     "@inquirer/prompts": "^4.0.0",
     "simple-git": "^3.22.0"
+  },
+  "devDependencies": {
+    "tsc": "^2.0.4"
   }
 }
