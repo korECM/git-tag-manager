@@ -75,11 +75,15 @@ const releaseVersion = async () => {
     }
     const lastPrerelease = semver.prerelease(previousCleanTag);
     const candidates : string[] = [];
+    // 이전 버전이 rc 버전인 경우
     if (lastPrerelease != null) {
         const prereleaseVersion = parseInt(`${lastPrerelease[0]}`.split("rc")[1])
         candidates.push(`v${semver.coerce(previousCleanTag)}-rc${prereleaseVersion + 1}`)
+    // 정식 버전인 경우
     } else {
-        candidates.push(`v${semver.coerce(previousCleanTag)}-rc1`)
+        candidates.push(`v${semver.coerce(semver.inc(previousCleanTag, 'patch'))}-rc1`)
+        candidates.push(`v${semver.coerce(semver.inc(previousCleanTag, 'minor'))}-rc1`)
+        candidates.push(`v${semver.coerce(semver.inc(previousCleanTag, 'major'))}-rc1`)
     }
     // @ts-ignore
     candidates.push(...[
