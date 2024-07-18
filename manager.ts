@@ -77,7 +77,7 @@ const releaseVersion = async () => {
     const candidates : string[] = [];
     // 이전 버전이 rc 버전인 경우
     if (lastPrerelease != null) {
-        const prereleaseVersion = parseInt(`${lastPrerelease[0]}`.split("rc.")[1])
+        const prereleaseVersion = parseInt(`${lastPrerelease[1]}`)
         candidates.push(`v${semver.coerce(previousCleanTag)}-rc.${prereleaseVersion + 1}`)
     // 정식 버전인 경우
     } else {
